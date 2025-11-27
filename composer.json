@@ -6,11 +6,5 @@
         "ext-pdo": "*",
         "ext-pdo_sqlite": "*",
         "ext-json": "*"
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "chmod 755 deploy.sh",
-            "./deploy.sh"
-        ]
     }
 }
