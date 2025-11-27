@@ -1,14 +1,17 @@
 services:
   - type: web
     name: stealth-geo-tracker
-    env: docker
+    env: php
     plan: free
-    docker:
-      dockerfile: Dockerfile
+    buildCommand: "chmod +x deploy.sh && ./deploy.sh"
+    startCommand: "php -S 0.0.0.0:$PORT server.php"
     envVars:
       - key: ADMIN_USERNAME
         value: admin
       - key: ADMIN_PASSWORD
-        value: your_secure_password_here
+        generateValue: true
       - key: SITE_BASE_URL
-        value: https://your-app.onrender.com
+        fromService:
+          type: web
+          name: stealth-geo-tracker
+          property: url
