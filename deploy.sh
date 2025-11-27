@@ -39,15 +39,9 @@ fi
 if [ ! -z "$PORT" ] || [ ! -z "$RENDER" ] || [ ! -z "$KOYEB" ]; then
     echo "🌐 Detected cloud platform"
     
-    # For cloud platforms, ensure proper directory structure
-    if [ ! -f "public/index.php" ]; then
-        cat > public/index.php << 'EOF'
-<?php
-// Cloud platform entry point
-require_once '../index.php';
-?>
-EOF
-        echo "📁 Created cloud entry point"
+    # For cloud platforms using PHP built-in server
+    if [ ! -f "server.php" ]; then
+        echo "📁 Using PHP built-in server"
     fi
 fi
 
