@@ -1,4 +1,9 @@
 <?php
+// Set security headers at the PHP level (fallback if .htaccess fails)
+header('X-Content-Type-Options: nosniff');
+header('X-Frame-Options: DENY');
+header('X-XSS-Protection: 1; mode=block');
+
 // Cloud platform compatibility
 if (getenv('PORT')) {
     $port = getenv('PORT');
