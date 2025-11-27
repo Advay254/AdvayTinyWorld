@@ -1,0 +1,20 @@
+name: Deploy to Koyeb
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Deploy to Koyeb
+        uses: koyeb/action@v1
+        with:
+          # Koyeb app name
+          app: stealth-geo-tracker
+          # Koyeb token
+          token: ${{ secrets.KOYEB_TOKEN }}
