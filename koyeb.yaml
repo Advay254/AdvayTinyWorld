@@ -1,0 +1,16 @@
+name: stealth-geo-tracker
+services:
+  - name: web
+    ports:
+      - port: 80
+        http_path: /
+    instances:
+      - type: nano
+        count: 1
+    env:
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        value: your_secure_password_here
+      - key: SITE_BASE_URL
+        value: https://your-app.koyeb.app
